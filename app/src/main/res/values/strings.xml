@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CanvasSetBitmapTester</string>
+    <string name="translate">Translate</string>
 </resources>
