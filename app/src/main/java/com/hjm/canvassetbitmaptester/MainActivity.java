@@ -1,6 +1,9 @@
 package com.hjm.canvassetbitmaptester;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
@@ -52,7 +55,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Bitmap translateImage(@DrawableRes int targetId) {
-        // TODO implement translation
-        return null;
+        Bitmap src = BitmapFactory.decodeResource(getResources(), targetId);
+        Bitmap dst = Bitmap.createBitmap(src.getWidth(), src.getHeight(), Bitmap.Config.ARGB_8888);
+
+        Canvas canvas = new Canvas();
+        canvas.translate(200, 200);
+        canvas.setBitmap(dst);
+        canvas.drawBitmap(src, 0, 0, new Paint());
+
+        return dst;
     }
 }
